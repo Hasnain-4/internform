@@ -1,0 +1,222 @@
+{% extends "index.html" %}
+{% block content %}
+{% load static %}
+<style>
+.haha{
+    display:none;
+}
+.para{
+    display:none
+}
+.form-control{
+    border-style: groove;
+}
+</style>
+
+  <div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <div class="page-breadcrumb">
+                <div class="row">
+                    <div class="col-7 align-self-center">
+                        <h3 class="page-title text-truncate text-dark font-weight-medium mb-1">New Master Incident</h3>
+                        <div class="d-flex align-items-center">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb m-0 p-0">
+                                    <li class="breadcrumb-item "><a class="text-dark">Initial Reporting</a>
+                                    </li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                   
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                <!-- *************************************************************** -->
+                <!-- Start First Cards -->
+                <!-- *************************************************************** -->
+<form action="report_form" method="post">
+{% csrf_token %}
+                <div class="row">
+                    <label class="col-lg-3">Location:</label>
+                    <div class="col-lg-9">
+                        <div class="row">
+                            <div class="col-md-6">
+                                
+                                <select name="location1" class="custom-select text-dark custom-select-set form-control bg-white custom-shadow">
+                                <option value="CH" selected="">Corporate Headoffice</option>
+                                <option value="OD">Operation Department</option>
+                                <option value="WS">Work Station</option>
+                                <option value="MD">Marketing Division</option>
+                                </select>
+                            </div>
+                           
+                        </div>
+                    </div>
+                </div>
+
+<div class="row">
+
+    <label class="col-lg-3 mt-3">Incident Department:</label>
+    <div class="col-lg-7">
+        <div class="row">
+            <div class="col-md-9">
+              
+                        <div class="mt-3">
+                            <div class="form-group">
+                                <textarea name="department" class="form-control" rows="3"></textarea>
+                            </div>
+                        </div>
+                                
+        </div>
+    </div>
+</div>
+</div>
+  <div class="row">
+
+    <label class="col-lg-3">Date and Time of Incident</label>
+    <div class="col-lg-9">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <input type="date" name="date" class="form-control" value="dd-mm-yyyy">
+                </div> 
+                <input type="time" name="time" class="form-control" style="width:9rem;" value="--:--">
+                
+            </div>
+            
+        </div>
+    </div>
+</div>
+  <div class="row">
+
+    <label class="col-lg-3 mt-3">Incident Location:</label>
+    <div class="col-lg-7">
+        <div class="row">
+            <div class="col-md-9">
+              
+                        <div class="mt-3">
+                            <div class="form-group">
+                                <textarea name="location2" class="form-control" rows="3"></textarea>
+                            </div>
+                        </div>
+                                
+        </div>
+    </div>
+</div>
+
+
+<label class="col-lg-3">Initial Severity:</label>
+<div class="col-lg-9">
+    <div class="row">
+        <div class="col-md-6">
+            
+            <select name="severity" class="custom-select text-dark  custom-select-set form-control bg-white custom-shadow">
+            <option value="Mild" selected="">Mild</option>
+            <option value="Moderate">Moderate</option>
+            <option value="Severe">Severe</option>
+            <option value="Fatal">Fatal</option>
+            </select>
+        </div>
+        
+    </div>
+</div>
+</div>
+
+    <div class="row">
+     <label class="col-lg-3 mt-3">Suspected Cause:</label>
+    <div class="col-lg-7">
+        <div class="row">
+            <div class="col-md-9">
+    
+            <div class="mt-3">
+                <div class="form-group">
+                    <textarea name="cause" class="form-control" rows="3"></textarea>
+                </div>
+            </div>
+                    
+        </div>
+    </div>
+    </div>
+</div>
+    <div class="row">
+     <label class="col-lg-3 mt-3">Immediate Action Taken:</label>
+    <div class="col-lg-7">
+        <div class="row">
+            <div class="col-md-9">
+    
+            <div class="mt-3">
+                <div class="form-group">
+                    <textarea name="action" class="form-control" rows="3"></textarea>
+                </div>
+            </div>
+                                
+        </div>
+    </div>
+    </div>
+    </div>
+
+    <div class="row">
+     <label class="col-lg-3 mt-3">Sub Incident Type:</label>
+    <div class="col-lg-7">
+        <div class="row">
+            <div class="col-md-9">
+    <div class="card">
+           <div class="card-body">
+            <fieldset class="checkbox">
+                <label>
+                    <input type="checkbox" name="env" value="t"> Environmental Incident
+                </label>
+            </fieldset>
+            <fieldset class="checkbox">
+                <label>
+                    <input type="checkbox" name="injury" value="t"> Injury / Illness
+                </label>
+            </fieldset>
+            <fieldset class="checkbox ">
+                <label>
+                    <input type="checkbox" name="property1" value="t"> Property Damage
+                </label>
+            </fieldset>
+            <fieldset class="checkbox ">
+                <label>
+                    <input type="checkbox" name="vehicle" value="t" > Vehicle
+                </label>
+            </fieldset>
+        </div>          
+        </div>
+    </div>
+    </div>
+    </div>
+</div>
+
+    <div class="row">
+     <label class="col-lg-3 mt-3">Reported By:</label>
+    <div class="col-lg-7">
+        <div class="row text-dark ">
+            <div class="col-md-9">
+            <label class=" mt-3">{{user.username}}</label>
+    </div>
+
+</div>
+<div class="float-right">
+<button type="submit" class="btn btn-primary">Save</button>
+<button type="button" class="btn btn-primary">Save for later</button>
+<button type="button" class="btn btn-dark">Cancel</button>
+</div>
+
+</form>
+
+    </div>
+    </div>
+
+
+{% endblock content %}
