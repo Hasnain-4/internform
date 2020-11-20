@@ -27,24 +27,6 @@
 </head>
 
 <body>
-<div class = "container">
-
-{% if messages %}
-{% for message in messages %}
-
-
-<div class="alert alert-{{ message.tags }} alert-dismissible fade show " role="alert">
-    <strong>{{ message }}</strong>
-  <button type="button" class="close " data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>
-
-{% endfor %}
-
-{% endif %}
-
-</div>
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
     <!-- ============================================================== -->
@@ -121,6 +103,7 @@
                                 <ul class="list-style-none">
                                     <li>
                                         <div class="message-center notifications position-relative">
+                                        
                                             <!-- Message -->
                                             <a href="javascript:void(0)"
                                                 class="message-item d-flex align-items-center border-bottom px-3 py-2">
@@ -321,11 +304,11 @@
                         <li class="list-divider"></li>
                         <li class="nav-small-cap"><span class="hide-menu">Authentication</span></li>
 
-                        {% comment %} {% if user.is_authenticated %} {% endcomment %}
+                        {% if user.is_authenticated %}
                         <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="logout"
                         aria-expanded="false"><i data-feather="log-out" class="feather-icon"></i><span
                         class="hide-menu">Logout</span></a></li>
-                        {% comment %} {% else %} {% endcomment %}
+                        {% else %}
                         <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="authentication-login"
                                 aria-expanded="false"><i data-feather="lock" class="feather-icon"></i><span
                                     class="hide-menu">Login
@@ -336,7 +319,7 @@
                                     class="feather-icon"></i><span class="hide-menu">Register
                                 </span></a>
                         </li>
-                        {% comment %} {% endif %} {% endcomment %}
+                        {% endif %}
                         
                     </ul>
                 </nav>
@@ -359,6 +342,26 @@
             <!-- ============================================================== -->
             <!-- Bread crumb and right sidebar toggle -->
             <!-- ============================================================== -->
+
+<div class = "container">
+
+{% if messages %}
+{% for message in messages %}
+
+
+<div class="alert alert-{{ message.tags }} alert-dismissible fade show " role="alert">
+    <strong>{{ message }}</strong>
+  <button type="button" class="close " data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+{% endfor %}
+
+{% endif %}
+
+</div>
+
             <div class="page-breadcrumb ">
                 <div class="row ">
                     <div class="col-7 align-self-center">
